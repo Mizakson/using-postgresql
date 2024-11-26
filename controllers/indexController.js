@@ -13,3 +13,7 @@ exports.getUsernameForm = (req, res) => {
         title: "New Username"
     })
 }
+
+exports.postUsernameForm = (req, res) => {
+    console.log("username to be saved: ", req.body.username)
+}
