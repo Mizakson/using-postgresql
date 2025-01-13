@@ -1,6 +1,5 @@
 const express = require("express")
 const path = require("path")
-const usersController = require("./controllers/usersController")
 const app = express()
 require("dotenv").config()
 
@@ -18,9 +17,6 @@ app.get("/", (req, res) => {
         title: "Home",
     })
 })
-app.get("/", usersController.getUsernames)
-app.get("/new", usersController.createUsernameGet)
-app.post("/new", usersController.createUsernamePost)
 
 
 const PORT = 3000
