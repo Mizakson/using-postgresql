@@ -1,5 +1,6 @@
 const express = require("express")
 const path = require("path")
+const { title } = require("process")
 const app = express()
 require("dotenv").config()
 
@@ -16,6 +17,18 @@ app.get("/", (req, res) => {
     res.render("index",{
         title: "Home",
     })
+    console.log("usernames will be logged here - WIP")
+})
+
+app.get("/new", (req, res) => {
+    res.render("form", {
+        title: "User Form",
+    })
+})
+
+app.post("/new", (req, res) => {
+    console.log("username to be saved: ", req.body.username)
+    res.redirect("/")
 })
 
 
