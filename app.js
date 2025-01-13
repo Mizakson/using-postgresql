@@ -23,7 +23,7 @@ app.get("/new", usersController.createUsernameGet)
 app.post("/new", usersController.createUsernamePost)
 
 
-const PORT = process.env.PORT
+const PORT = 3000
 app.listen(PORT, () => {
     console.log(`listening on port ${PORT}`)
 })
