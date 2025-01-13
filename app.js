@@ -1,5 +1,6 @@
 const express = require("express")
 const path = require("path")
+const usersController = require("./controllers/usersController")
 const app = express()
 require("dotenv").config()
 
@@ -7,25 +8,22 @@ app.set("views", path.join(__dirname, "views"))
 app.set("view engine", "ejs")
 app.use(express.urlencoded({ extended: true }))
 
-const indexRouter = require("./routes/index")
+// const indexRouter = require("./routes/index")
 
-app.use("/", indexRouter)
+// app.use("/", indexRouter)
 
 // paste to index router
 app.get("/", (req, res) => {
-    console.log("usernames will be logged here...")
+    res.render("index",{
+        title: "Home",
+    })
 })
-
-app.get("/new", (req, res) => {
-    // render form here
-})
-
-app.post("/new", (req, res) => {
-    console.log("username to be saved: ", req.body.username)
-})
+app.get("/", usersController.getUsernames)
+app.get("/new", usersController.createUsernameGet)
+app.post("/new", usersController.createUsernamePost)
 
 
-const PORT = 3000
+const PORT = process.env.PORT
 app.listen(PORT, () => {
     console.log(`listening on port ${PORT}`)
 })
