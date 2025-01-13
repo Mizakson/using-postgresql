@@ -11,6 +11,20 @@ const indexRouter = require("./routes/index")
 
 app.use("/", indexRouter)
 
+// paste to index router
+app.get("/", (req, res) => {
+    console.log("usernames will be logged here...")
+})
+
+app.get("/new", (req, res) => {
+    // render form here
+})
+
+app.post("/new", (req, res) => {
+    console.log("username to be saved: ", req.body.username)
+})
+
+
 const PORT = 3000
 app.listen(PORT, () => {
     console.log(`listening on port ${PORT}`)
