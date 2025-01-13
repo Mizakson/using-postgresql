@@ -8,19 +8,10 @@ app.set("view engine", "ejs")
 app.use(express.urlencoded({ extended: true }))
 
 const indexRouter = require("./routes/indexRouter")
+const usersRouter = require("./routes/usersRouter")
 
 app.use("/", indexRouter)
-
-app.get("/new", (req, res) => {
-    res.render("form", {
-        title: "User Form",
-    })
-})
-
-app.post("/new", (req, res) => {
-    console.log("username to be saved: ", req.body.username)
-    res.redirect("/")
-})
+app.use("/new", usersRouter)
 
 
 const PORT = 3000
