@@ -5,6 +5,8 @@ const indexRouter = Router()
 
 indexRouter.get("/", indexController.indexHomePageGet)
 indexRouter.get("/all", indexController.renderAllUsers)
+indexRouter.get("/search", indexController.searchFormGet)
+indexRouter.get("/search/result", indexController.searchUserGet)
 
 
 module.exports = indexRouter
