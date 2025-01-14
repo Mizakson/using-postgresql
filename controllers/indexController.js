@@ -31,9 +31,16 @@ async function searchUserGet(req, res) {
     
 }
 
+async function deleteUsersGet(req, res) {
+    const deleteAllUsers = await db.deleteAllUsers()
+    console.log("all users deleted...")
+    res.send("All users deleted...")
+}
+
 module.exports = {
     indexHomePageGet,
     renderAllUsers,
     searchFormGet,
     searchUserGet,
+    deleteUsersGet,
 }
